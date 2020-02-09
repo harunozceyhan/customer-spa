@@ -2,6 +2,7 @@ import App from './app'
 import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import loggerMiddleware from './middleware/logger'
+import DBInitializer from './db/db.initialize'
 
 
 // If env is not production, use .env file to get config
@@ -14,3 +15,6 @@ new App({
     controllers: [],
     middleWares: [bodyParser.json(), bodyParser.urlencoded({ extended: true }), loggerMiddleware]
 }).listen()
+
+// Initialize Database connection
+new DBInitializer()
