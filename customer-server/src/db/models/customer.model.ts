@@ -4,7 +4,7 @@ class Customer extends Model {
     id!: string
     firstName!: string
     lastName!: string
-    birthday!: string
+    birthday!: Date
     gender!: string
     lastContact!: Date
     customerLifeTimeValue!: number
@@ -20,7 +20,7 @@ class Customer extends Model {
     static get jsonSchema() {
         return {
             type: 'object',
-            required: ['firstName', 'lastName', 'birthday', 'gender', 'lastContact', 'customerLifeTimeValue'],
+            required: ['id', 'firstName', 'lastName', 'birthday', 'gender', 'lastContact', 'customerLifeTimeValue'],
         }
     }
 }

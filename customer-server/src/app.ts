@@ -1,5 +1,6 @@
 import express from 'express'
 import { Server } from 'http'
+import exceptionMiddleware from './middleware/exception'
 
 class App {
     public app: express.Application
@@ -8,9 +9,12 @@ class App {
     constructor(appInit: { middleWares: any; controllers: any }) {
         this.app = express()
         this.port = parseInt(process.env.PORT)
-
-        this.routes(appInit.controllers)
+        // Initialize parser and logging middlewares before controller initialization
         this.middlewares(appInit.middleWares)
+        // Initialize controllers
+        this.routes(appInit.controllers)
+        // Initialize error middleware after controller initialization. Otherwise not working
+        this.app.use(exceptionMiddleware)
         this.template()
     }
 

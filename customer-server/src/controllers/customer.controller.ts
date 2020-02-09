@@ -12,22 +12,38 @@ class CustomerController {
 
     public initRoutes() {
         this.router.get('/', this.getAllCustomers)
-        this.router.post('/', this.postCustomer)
+        this.router.post('/', this.addCustomer)
+        this.router.put('/:id', this.updateCustomer)
+        this.router.delete('/:id', this.deleteCustomer)
     }
 
     getAllCustomers = async (req: Request, res: Response) => {
         res.send(await Customer.query().select())
     }
 
-    postCustomer = async (req: Request, res: Response, next: NextFunction) => {
+    addCustomer = async (req: Request, res: Response, next: NextFunction) => {
         try {
-            const customer = await Customer.query().insert({
-                id: uuid(), firstName: 'Harun', lastName: 'Ozceyhan',
-                gender: 'w',
-                lastContact: new Date(),
-                customerLifeTimeValue: 213.12
-            })
-            res.send(customer)
+            const customer = await Customer.query().insert({ id: uuid(), ...req.body })
+            res.status(201).send(customer)
+        } catch (err) {
+            next(err)
+        }
+    }
+
+    updateCustomer = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            await Customer.query().patch(req.body).where('id', req.params.id)
+            res.status(200).send()
+        } catch (err) {
+            next(err)
+        }
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    deleteCustomer = async (req: Request, res: Response, next: NextFunction) => {
+        try {
+            await Customer.query().deleteById(req.params.id)
+            res.status(200).send()
         } catch (err) {
             next(err)
         }
