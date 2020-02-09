@@ -2,7 +2,9 @@ import App from './app'
 import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import loggerMiddleware from './middleware/logger'
+import exceptionMiddleware from './middleware/exception'
 import DBInitializer from './db/db.initialize'
+import CustomerController from './controllers/customer.controller'
 
 
 // If env is not production, use .env file to get config
@@ -12,8 +14,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 // Create Express app and start listening
 new App({
-    controllers: [],
-    middleWares: [bodyParser.json(), bodyParser.urlencoded({ extended: true }), loggerMiddleware]
+    controllers: [new CustomerController()],
+    middleWares: [bodyParser.json(), bodyParser.urlencoded({ extended: true }), exceptionMiddleware, loggerMiddleware]
 }).listen()
 
 // Initialize Database connection

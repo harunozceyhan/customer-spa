@@ -9,8 +9,8 @@ class App {
         this.app = express()
         this.port = parseInt(process.env.PORT)
 
-        this.middlewares(appInit.middleWares)
         this.routes(appInit.controllers)
+        this.middlewares(appInit.middleWares)
         this.template()
     }
 

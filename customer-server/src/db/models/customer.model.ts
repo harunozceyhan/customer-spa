@@ -7,7 +7,7 @@ class Customer extends Model {
     birthday!: string
     gender!: string
     lastContact!: Date
-    customerLifeTimeValue!: Number
+    customerLifeTimeValue!: number
 
     static get tableName(): string {
         return 'customer'
