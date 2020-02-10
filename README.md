@@ -37,6 +37,12 @@ Single Page Customer Application that performs CRUD operations on customer data.
 
 ## Technologies Used
 
+-   Dev
+
+    -   Conventional Commits
+    -   Commitlint
+    -   Husky
+
 -   Client Side
 
     -   ES Lint 6
@@ -44,8 +50,8 @@ Single Page Customer Application that performs CRUD operations on customer data.
     -   Vue CLI
     -   Vuex
     -   Vuetify
-    -   vue-router
-    -   axios
+    -   Vue-router
+    -   Axios
     -   vue-test-utils
     -   jest
 
@@ -53,7 +59,7 @@ Single Page Customer Application that performs CRUD operations on customer data.
 
     -   Node.js
     -   Typescript
-    -   express
+    -   Express
     -   Objection.js
     -   Knex
     -   pg
