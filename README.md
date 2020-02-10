@@ -38,6 +38,7 @@ Single Page Customer Application that performs CRUD operations on customer data.
 ## Technologies Used
 
 -   Client Side
+
     -   ES Lint 6
     -   Vue.js
     -   Vue CLI
@@ -45,10 +46,16 @@ Single Page Customer Application that performs CRUD operations on customer data.
     -   Vuetify
     -   vue-router
     -   axios
+    -   vue-test-utils
+    -   jest
+
 -   Server Side
+
     -   Node.js
     -   Typescript
     -   express
     -   Objection.js
     -   Knex
     -   pg
+    -   mocha
+    -   chai
