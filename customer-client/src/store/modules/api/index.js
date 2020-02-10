@@ -1,3 +1,4 @@
+import router from '@/plugins/router/router'
 import { SET_MAINLIST_OF_PAGE, CLEAR_PAGE_STATE, SET_DETAIL_DATA_STATE } from './mutation-types'
 
 const page = () => ({
@@ -15,6 +16,9 @@ export default {
 		},
 		getMainListOfPage: state => {
 			return state.page.mainList
+		},
+		getDetailData: state => {
+			return state.page.detailData
 		}
 	},
 	mutations: {
@@ -46,23 +50,26 @@ export default {
 			)
 		},
 		// eslint-disable-next-line no-unused-vars
-		requestPostMainOfPage({ commit }, payload) {
+		requestPostData({ commit }, payload) {
 			this._vm.axios.post(payload.requestUri, payload.data, { loading: true }).then(
 				() => this.dispatch('setSuccessAlert', 'Customer Added!'),
 				() => {}
 			)
 		},
 		// eslint-disable-next-line no-unused-vars
-		requestPutMainOfPage({ commit }, payload) {
+		requestPutData({ commit }, payload) {
 			this._vm.axios.put(payload.requestUri + '/' + payload.data.id, payload.data, { loading: true }).then(
 				() => this.dispatch('setSuccessAlert', 'Customer Updated!'),
 				() => {}
 			)
 		},
 		// eslint-disable-next-line no-unused-vars
-		requestDeleteMainOfPage({ commit }, payload) {
-			this._vm.axios.delete(payload.requestUri + '/' + payload.data.id, { loading: true }).then(
-				() => this.dispatch('setSuccessAlert', 'Customer Deleted!'),
+		requestDeleteData({ commit }, payload) {
+			this._vm.axios.delete(payload.requestUri + '/' + payload.id, { loading: true }).then(
+				() => {
+					this.dispatch('setSuccessAlert', 'Customer Deleted!')
+					router.push({ path: 'customer' })
+				},
 				() => {}
 			)
 		}

@@ -34,6 +34,9 @@ export default {
 			state.alert.type = payload.alertType
 			state.alert.timeout = payload.timeout
 			state.alert.text = payload.text
+		},
+		[SET_ALERT_SHOW_STATE](state, payload) {
+			state.alert.show = payload.show
 		}
 	},
 	actions: {
