@@ -13,10 +13,12 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // Create Express app and start listening
-new App({
+const app = new App({
     controllers: [new CustomerController()],
     middleWares: [bodyParser.json(), bodyParser.urlencoded({ extended: true }), loggerMiddleware, corsMiddleware]
 }).listen()
 
 // Initialize Database connection
 new DBInitializer()
+
+export default app // exported express app to use in tests

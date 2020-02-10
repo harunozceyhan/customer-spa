@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express'
 import { ValidationError, NotFoundError, DBError, NotNullViolationError, CheckViolationError, DataError } from 'objection'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-function exceptionMiddleware(err: Error, req: Request, res: Response, next: NextFunction) {
+const exceptionMiddleware = (err: Error, req: Request, res: Response, next: NextFunction) => {
     if (err instanceof ValidationError) {
         switch (err.type) {
             case 'ModelValidation':

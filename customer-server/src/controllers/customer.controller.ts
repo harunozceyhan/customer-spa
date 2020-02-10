@@ -11,10 +11,10 @@ class CustomerController {
     }
 
     public initRoutes() {
-        this.router.get('/', this.getAllCustomers)
-        this.router.post('/', this.addCustomer)
-        this.router.put('/:id', this.updateCustomer)
-        this.router.delete('/:id', this.deleteCustomer)
+        this.router.get('/api/v1', this.getAllCustomers)
+        this.router.post('/api/v1', this.addCustomer)
+        this.router.put('/api/v1/:id', this.updateCustomer)
+        this.router.delete('/api/v1/:id', this.deleteCustomer)
     }
 
     getAllCustomers = async (req: Request, res: Response) => {

@@ -10,7 +10,8 @@
 		"build-ts": "tsc",
 		"watch-ts": "tsc -w",
 		"debug": "npm run build && npm run serve-debug",
-		"serve-debug": "nodemon --inspect dist/server.js"
+		"serve-debug": "nodemon --inspect dist/server.js",
+		"test": "mocha -r ts-node/register src/**/*.spec.ts"
 	},
 	"author": "Harun Ozceyhan",
 	"license": "ISC",
@@ -35,12 +36,18 @@
 		"@babel/core": "7.8.3",
 		"@babel/node": "7.8.3",
 		"@babel/preset-env": "7.8.3",
+		"@types/chai": "^4.2.8",
+		"@types/mocha": "^7.0.1",
+		"@types/supertest": "^2.0.8",
 		"@typescript-eslint/eslint-plugin": "^2.3.1",
 		"@typescript-eslint/parser": "^2.3.1",
 		"babel-eslint": "10.0.3",
+		"chai": "^4.2.0",
 		"eslint": "6.8.0",
 		"eslint-config-airbnb-typescript": "6.3.1",
-		"ts-node": "8.6.2",
+		"mocha": "^7.0.1",
+		"supertest": "^4.0.2",
+		"ts-node": "^8.6.2",
 		"ts-node-dev": "1.0.0-pre.44"
 	}
 }
