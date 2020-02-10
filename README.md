@@ -16,6 +16,7 @@ Single Page Customer Application that performs CRUD operations on customer data.
 ## Installation
 
 -   `git clone https://github.com/harunozceyhan/customer-spa.git`
+-   `cd customer-spa`
 -   `npm install`
 -   `npm run fullinstall`
 -   `npm run start`
