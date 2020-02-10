@@ -1,5 +1,10 @@
 import store from '@/store'
 
+/*
+    Creates a response config that updates store state with request config parameters to hide loading bars
+    It also handles if response contains any error and updates alert state to show error messages
+*/
+
 export const successResponseHandler = response => {
 	if (response.config.loading) store.dispatch('setLoading', false)
 	if (response.config.tableLoading) store.dispatch('setTableLoading', false)

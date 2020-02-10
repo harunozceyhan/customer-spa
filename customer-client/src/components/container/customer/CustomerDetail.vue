@@ -88,10 +88,12 @@ export default {
 			this.pickers.birthdayPickerOpened = false
 			this.detailData.birthday = date
 		},
+		// If date selected form last contact, create new date from selected date and set default time if not set
 		onLastContactDateSelected(date) {
 			this.pickers.lastContactDatePickerOpened = false
 			this.detailData.lastContact = new Date(date + 'T' + (this.detailData.lastContact === undefined ? '00:00' : this.detailData.lastContact.split('T')[1].substring(0, 5)) + ':00.000Z').toISOString()
 		},
+		// If date selected form last contact, create new date from selected date and set default date if not set
 		onLastContactTimeSelected(date) {
 			this.pickers.lastContactTimePickerOpened = false
 			this.detailData.lastContact = new Date((this.detailData.lastContact === undefined ? new Date().toISOString().split('T')[0] : this.detailData.lastContact.split('T')[0]) + 'T' + date + ':00.000Z').toISOString()
