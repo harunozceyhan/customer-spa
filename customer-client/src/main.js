@@ -4,6 +4,7 @@ import vuetify from './plugins/vuetify/vuetify'
 import store from './store'
 import router from './plugins/router/router'
 import moment from 'vue-moment'
+import './plugins/axios'
 
 Vue.config.productionTip = false
 Vue.use(moment)
