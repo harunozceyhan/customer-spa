@@ -11,7 +11,7 @@ Single Page Customer Application that performs CRUD operations on customer data.
 ## Pre-Requisites
 
 > To configure PostgreSQL connection URL, simply rename file .env.example to .env in customer-server folder.  
-> Then edit .env file and enter your DB_HOST, DB_USER, DB_PASSWORD, DB_NAME info.
+> Then edit .env file and enter your DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME info.
 
 ## Installation
 
