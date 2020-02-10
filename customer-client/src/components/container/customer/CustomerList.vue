@@ -8,7 +8,7 @@
 				<v-btn class="mx-2" fab dark small color="success" @click="routeDetailPage({})"> <v-icon dark>add</v-icon> </v-btn>
 			</v-card-title>
 			<v-card-text>
-				<v-data-table :headers="headers" :items="getPage.mainList" :items-per-page="10" :loading="getTableLoading" class="elevation-1" calculate-widths>
+				<v-data-table :headers="headers" :items="getPage.mainList" :items-per-page="10" :loading="getTableLoading" class="elevation-1">
 					<template v-slot:body="{ items }">
 						<tbody>
 							<tr v-for="item in items" :key="item.id">
