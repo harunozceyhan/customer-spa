@@ -1,4 +1,4 @@
-# Customer-CRUD
+# Customer-SPA
 
 Single Page Customer Application that performs CRUD operations on customer data.
 
@@ -44,8 +44,6 @@ Single Page Customer Application that performs CRUD operations on customer data.
     -   Vuetify
     -   vue-router
     -   axios
-    -   enzyme
-    -   jest
 -   Server Side
     -   Node.js
     -   Typescript
@@ -53,5 +51,3 @@ Single Page Customer Application that performs CRUD operations on customer data.
     -   Objection.js
     -   Knex
     -   pg
-    -   mocha
-    -   chai
