@@ -14,9 +14,9 @@
 							<tr v-for="item in items" :key="item.id">
 								<td>{{ item.firstName }}</td>
 								<td>{{ item.lastName }}</td>
-								<td>{{ $moment(new Date(item.birthday)).format('DD-MM-YYYY') }}</td>
+								<td>{{ item.birthday.split('T')[0] }}</td>
 								<td class="text-center">{{ item.gender }}</td>
-								<td>{{ $moment(new Date(item.birthday)).format('DD-MM-YYYY HH:mm:ss') }}</td>
+								<td>{{ item.lastContact.split('T')[0] + ' ' + item.lastContact.split('T')[1].substring(0, 8) }}</td>
 								<td>{{ item.customerLifeTimeValue }}</td>
 								<td class="text-center">
 									<v-btn fab small icon dark color="info" @click="routeDetailPage(item)"> <v-icon dark>edit</v-icon> </v-btn>

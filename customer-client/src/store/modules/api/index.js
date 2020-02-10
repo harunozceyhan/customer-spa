@@ -49,25 +49,31 @@ export default {
 				() => {}
 			)
 		},
-		// eslint-disable-next-line no-unused-vars
 		requestPostData({ commit }, payload) {
 			this._vm.axios.post(payload.requestUri, payload.data, { loading: true }).then(
-				() => this.dispatch('setSuccessAlert', 'Customer Added!'),
+				() => {
+					this.dispatch('setSuccessAlert', 'Customer Added!')
+					commit({ type: SET_DETAIL_DATA_STATE, detailData: {} })
+					router.push({ path: 'customer' })
+				},
 				() => {}
 			)
 		},
-		// eslint-disable-next-line no-unused-vars
 		requestPutData({ commit }, payload) {
 			this._vm.axios.put(payload.requestUri + '/' + payload.data.id, payload.data, { loading: true }).then(
-				() => this.dispatch('setSuccessAlert', 'Customer Updated!'),
+				() => {
+					this.dispatch('setSuccessAlert', 'Customer Updated!')
+					commit({ type: SET_DETAIL_DATA_STATE, detailData: {} })
+					router.push({ path: 'customer' })
+				},
 				() => {}
 			)
 		},
-		// eslint-disable-next-line no-unused-vars
 		requestDeleteData({ commit }, payload) {
 			this._vm.axios.delete(payload.requestUri + '/' + payload.id, { loading: true }).then(
 				() => {
 					this.dispatch('setSuccessAlert', 'Customer Deleted!')
+					commit({ type: SET_DETAIL_DATA_STATE, detailData: {} })
 					router.push({ path: 'customer' })
 				},
 				() => {}
