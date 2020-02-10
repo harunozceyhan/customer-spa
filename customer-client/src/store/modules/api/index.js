@@ -52,26 +52,37 @@ export default {
 		},
 		requestMainListOfPage({ commit }, payload) {
 			this._vm.axios.get(payload.requestUri, { tableLoading: true }).then(
-				response => commit({ type: SET_MAINLIST_OF_PAGE, mainList: response.data._embedded[payload.responseKey], pageSize: response.data.page.size, totalElements: response.data.page.totalElements, pageNumber: response.data.page.number }),
+				response => commit({ type: SET_MAINLIST_OF_PAGE, mainList: response.data }),
 				() => {}
 			)
 		},
-		requestPostMainOfPage({ commit, rootState }, payload) {
+		// eslint-disable-next-line no-unused-vars
+		requestPostMainOfPage({ commit }, payload) {
 			this._vm.axios.post(payload.requestUri, payload.data, { loading: true }).then(
 				response => {
 					commit({ type: SET_DETAIL_DATA_STATE, detailData: response.data })
 					this.dispatch('setSuccessAlert', 'Customer Added!')
-					rootState.common.eventHub.$emit('refreshPageList')
+					this.eventHub.$emit('refreshPageList')
 				},
 				() => {}
 			)
 		},
-		requestPutMainOfPage({ commit, rootState }, payload) {
+		// eslint-disable-next-line no-unused-vars
+		requestPutMainOfPage({ commit }, payload) {
 			this._vm.axios.put(payload.requestUri + '/' + payload.data.id, payload.data, { loading: true }).then(
-				response => {
-					commit({ type: SET_DETAIL_DATA_STATE, detailData: response.data })
+				() => {
 					this.dispatch('setSuccessAlert', 'Customer Updated!')
-					rootState.common.eventHub.$emit('refreshPageList')
+					this.eventHub.$emit('refreshPageList')
+				},
+				() => {}
+			)
+		},
+		// eslint-disable-next-line no-unused-vars
+		requestDeleteMainOfPage({ commit }, payload) {
+			this._vm.axios.delete(payload.requestUri + '/' + payload.data.id, { loading: true }).then(
+				() => {
+					this.dispatch('setSuccessAlert', 'Customer Deleted!')
+					this.eventHub.$emit('refreshPageList')
 				},
 				() => {}
 			)
